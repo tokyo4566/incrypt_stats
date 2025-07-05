@@ -1,4 +1,4 @@
-#InCrypt Community Stats Dashboard
+# InCrypt Community Stats Dashboard
 
 This is a simple, client-side landing page that displays real-time statistics for the Bitcoin2 (BTC2) blockchain and for personal masternodes hosted on the Pecunia platform. It is designed to be run locally or on a private server.
 

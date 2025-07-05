@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC2 & InCrypt Stats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- SVG Definitions for patterns, etc. -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <pattern id="striped-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
+                <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" style="stroke:#333; stroke-width:3;"/>
+            </pattern>
+        </defs>
+    </svg>
+
+    <main class="stats-grid">
+        <!-- All 7 cards are direct children of the grid -->
+
+        <!-- Column 1, Row 1 -->
+        <div class="card card-incrypt-logo">
+            <img src="logos/incrypt_logo.jpg" alt="InCrypt Logo">
+        </div>
+
+        <!-- Column 2, Rows 1 & 2 -->
+        <a href="https://bitc2.org/block-explorer/" target="_blank" class="card card-block-clock">
+            <div class="clock-container">
+                <svg viewBox="0 0 100 100">
+                    <image href="logos/btc2_logo.png" x="38" y="10" width="24" height="24" opacity="0.8"/>
+                    <circle class="clock-bg" cx="50" cy="50" r="45"></circle>
+                    <circle class="clock-progress" cx="50" cy="50" r="45"></circle>
+                    <text class="clock-text-large" id="block-height-clock" x="50" y="55"></text>
+                    <text class="clock-text-small" id="difficulty-clock" x="50" y="71"></text>
+                    <text class="clock-text-label" x="50" y="85">Blocktime</text>
+                </svg>
+            </div>
+        </a>
+
+        <!-- Column 1, Row 2 -->
+        <div class="card card-rewards-ticker">
+             <p><strong>Block Reward:</strong> <span>0.2 BTC2</span></p>
+             <p><strong>Total Earned:</strong> <span id="total-rewards"></span></p>
+             <p><strong>Total Staked:</strong> <span id="total-staked"></span></p>
+        </div>
+
+        <!-- Column 1, Row 3 -->
+        <div class="card card-incrypt-mn">
+            <div class="donut-chart-container">
+                <svg id="incrypt-mn-chart" viewBox="0 0 100 100"></svg>
+                <div id="incrypt-mn-text" class="donut-chart-text"></div>
+            </div>
+        </div>
+
+        <!-- Column 2, Row 3 -->
+        <a href="https://bitc2.org/#exchanges" target="_blank" class="card card-btc2-supply">
+            <div class="donut-chart-container">
+                <svg id="btc2-supply-chart" viewBox="0 0 100 100">
+                    <image href="logos/btc2_logo.png" x="40" y="8" width="20" height="20" opacity="0.8"/>
+                </svg>
+                <div id="btc2-supply-text" class="donut-chart-text"></div>
+            </div>
+        </a>
+
+        <!-- Column 1, Row 4 -->
+        <div class="card card-next-mn-progress">
+             <svg class="progress-bar-svg" width="100%" height="40">
+                <rect class="progress-bar-bg" x="0" y="10" width="100%" height="20" rx="10"></rect>
+                <rect id="next-mn-bar" class="progress-bar-fill" x="0" y="10" width="0%" height="20" rx="10"></rect>
+            </svg>
+            <span id="next-mn-progress"></span>
+        </div>
+
+        <!-- Column 2, Row 4 -->
+        <div class="card card-btc2-mn-progress">
+            <svg class="progress-bar-svg" width="100%" height="40">
+                <rect class="progress-bar-bg" x="0" y="10" width="100%" height="20" rx="10"></rect>
+                <rect id="btc2-mn-bar" class="progress-bar-fill" x="0" y="10" width="0%" height="20" rx="10"></rect>
+            </svg>
+            <span id="mn-online"></span>
+        </div>
+    </main>
+
+    <a href="https://bitc2.org/" target="_blank" class="footer-container">
+        <!-- Item 8: Powered by Bitcoin2 Logo -->
+        <p>Powered by Bitcoin2</p>
+        <img src="logos/btc2_logo.png" alt="Bitcoin2 Logo">
+    </a>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

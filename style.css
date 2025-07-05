@@ -1,0 +1,256 @@
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #F9A825; /* Orange background*/
+    color: #333;
+    margin: 0;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Grid Container */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 150px;
+}
+
+.card p {
+    margin: 0.5em 0;
+    font-size: 1.1em;
+}
+
+.card span {
+    font-weight: 500;
+    font-size: 1.5em; /* Larger font for data */
+    color: #2d3748;
+    background-color: transparent; 
+    padding: 0;
+}
+
+/* Footer Styling */
+.footer-container {
+    text-align: center;
+    /* color: #FFFFFF; */
+}
+
+.footer-container p {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.footer-container img {
+    max-width: 100px;
+    margin-top: 15px;
+    opacity: 0.9;
+    background-color: rgba(255, 255, 255, 0.1); /* Faint white circle */
+    border-radius: 50%; /* Make it a circle */
+    padding: 10px; /* Space between logo and circle edge */
+}
+
+/* --- NEW RULES FOR PROGRESS BARS --- */
+.progress-bar-svg {
+    margin-bottom: 10px;
+}
+
+.progress-bar-bg {
+    fill: #E0E0E0; /* Light grey background for the bar */
+}
+
+.progress-bar-fill {
+    fill: url(#striped-pattern); /* Use our striped pattern */
+}
+
+/* Define the pattern in an SVG in our HTML, so let's add it. */
+
+/* --- NEW RULES FOR DONUT CHARTS --- */
+.donut-chart-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+#incrypt-mn-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.donut-chart-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#incrypt-mn-chart .chart-segment {
+    stroke: #FFFFFF;
+    stroke-width: 2;
+}
+
+.chart-segment.online {
+    fill: #F9A825; /* Orange for online */
+}
+
+#incrypt-mn-chart .chart-segment.offline {
+    fill: #D32F2F; /* Red for offline/other */
+}
+
+/* --- NEW RULE FOR THE SUPPLY TEXT --- */
+#btc2-supply-text {
+    font-size: 1.2em; /* Make font smaller */
+    line-height: 1.3;
+}
+#btc2-supply-text .label {
+    display: block; /* Make labels take their own line */
+    font-size: 0.6em;
+    font-weight: normal;
+    color: #757575;
+}
+
+/* --- (Adjust color) --- */
+#btc2-supply-chart .chart-segment.inactive {
+    fill: #EEEEEE; /* Light Gray for inactive supply segments */
+}
+
+/* General link styling for cards and the footer */
+a.card, a.footer-container {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the parent's text color (black for cards, white for footer) */
+}
+
+/* --- NEW RULES FOR THE BLOCK CLOCK --- */
+
+/* Remove link underline */
+a.card-block-clock {
+    text-decoration: none;
+}
+
+.clock-container {
+    width: 180px;
+    height: 180px;
+}
+
+.clock-bg {
+    fill: none;
+    stroke: #EEEEEE; /* Light gray background */
+    stroke-width: 8;
+}
+
+.clock-progress {
+    fill: none;
+    stroke: #F9A825; /* Orange progress color */
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    stroke-dasharray: 282.7; /* Circumference of the circle (2 * PI * 45) */
+    stroke-dashoffset: 282.7;
+    animation: clock-tick 63s linear infinite; /* 63s is the avg block time from API */
+}
+
+.clock-text-large {
+    font-size: 16px; /* Reduced from 18px */
+    font-weight: bold;
+    text-anchor: middle;
+    fill: #333;
+}
+
+.clock-text-small, .clock-text-label {
+    font-size: 8px; /* Use absolute px instead of em */
+    text-anchor: middle;
+    fill: #757575;
+}
+
+/* The animation keyframes */
+@keyframes clock-tick {
+    from {
+        stroke-dashoffset: 282.7;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* --- ADD THIS NEW RULE FOR THE CLOCK --- */
+/* Make the clock span two rows */
+.card-block-clock {
+    grid-row: span 2;
+}
+
+/* --- RESTORE THESE DELETED RULES --- */
+.card-incrypt-logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: transparent; /* Keep background transparent */
+    box-shadow: none;
+}
+
+.card-incrypt-logo img {
+    max-width: 80%;
+    border-radius: 50%;
+}
+
+.card-rewards-ticker {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.card-incrypt-mn {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.card-btc2-supply {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.card-next-mn-progress {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+
+.card-btc2-mn-progress {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+
+/* --- NEW RULE FOR THE REWARDS CARD --- */
+.card-rewards-ticker {
+    background: linear-gradient(135deg, #1E3A8A, #3B82F6); /* Dark blue to lighter blue gradient */
+    color: #FFFFFF; /* Make all text inside white */
+}
+
+/* Ensure all text inside the card becomes white */
+.card-rewards-ticker p,
+.card-rewards-ticker span {
+    color: #FFFFFF;
+} 
